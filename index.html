@@ -3,39 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saga Paws | 多伦多精明养宠省钱攻略</title>
+    <title>Saga Paws | 加拿大铲屎官薅福利手册</title>
     <style>
-        :root { --primary-color: #7a5df5; --bg-color: #f8f9fa; }
-        body { font-family: -apple-system, system-ui, sans-serif; background: var(--bg-color); margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #333; }
-        .card { background: white; width: 90%; max-width: 400px; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); padding: 40px 30px; text-align: center; }
-        .logo { font-size: 2.5rem; margin-bottom: 10px; }
-        h1 { font-size: 1.4rem; margin: 10px 0; color: #111; }
-        p { font-size: 0.95rem; color: #666; line-height: 1.6; margin-bottom: 30px; }
-        .promo-box { background: #fff4f4; border: 1px dashed #ff4d4f; border-radius: 12px; padding: 15px; margin-bottom: 25px; }
-        .promo-text { color: #ff4d4f; font-weight: bold; font-size: 1.1rem; }
-        .btn { display: block; background: var(--primary-color); color: white; text-decoration: none; padding: 16px; border-radius: 14px; font-weight: 600; font-size: 1rem; transition: 0.3s; margin-bottom: 15px; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(122,93,245,0.3); }
-        .footer-text { font-size: 0.8rem; color: #aaa; margin-top: 20px; }
+        :root { --primary-color: #4CAF50; --accent-color: #ff4d4f; }
+        body { 
+            font-family: -apple-system, system-ui, sans-serif; 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh;
+            /* 这里调用你上传的背景图 */
+            background: url('bg1-dog.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        /* 增加一个淡化蒙版，让文字清晰 */
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.7); z-index: 1; }
+        
+        .card { 
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.95); 
+            width: 90%; 
+            max-width: 420px; 
+            border-radius: 28px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+            padding: 35px 25px; 
+            text-align: center; 
+        }
+        .tag { background: #e8f5e9; color: #2e7d32; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
+        h1 { font-size: 1.6rem; margin: 15px 0 10px; color: #1a1a1a; }
+        .intro { font-size: 1rem; color: #444; line-height: 1.5; margin-bottom: 25px; }
+        
+        .promo-box { border: 2px solid #ff4d4f; border-radius: 16px; padding: 18px; margin-bottom: 20px; background: #fff1f0; }
+        .promo-title { color: #ff4d4f; font-weight: 800; font-size: 1.2rem; margin-bottom: 5px; }
+        .promo-sub { font-size: 0.9rem; color: #cf1322; }
+
+        .benefit-list { text-align: left; background: #f0f2f5; padding: 15px; border-radius: 12px; margin-bottom: 25px; font-size: 0.9rem; }
+        .benefit-item { margin-bottom: 8px; display: flex; align-items: center; }
+
+        .btn { display: block; background: var(--primary-color); color: white; text-decoration: none; padding: 18px; border-radius: 16px; font-weight: bold; font-size: 1.1rem; transition: 0.3s; margin-bottom: 12px; }
+        .btn-secondary { background: #1890ff; }
+        .btn:hover { transform: scale(1.02); filter: brightness(1.1); }
+        .footer-text { font-size: 0.75rem; color: #888; margin-top: 15px; }
     </style>
 </head>
 <body>
+    <div class="overlay"></div>
     <div class="card">
-        <div class="logo">🐾</div>
+        <span class="tag">🇨🇦 加拿大铲屎官专属福利</span>
         <h1>Saga Paws</h1>
-        <p>坐标多伦多 North York，分享最真实的加国养宠回血攻略。帮你的主子薅到最高端福利！</p>
+        <p class="intro">轻松薅福利，帮你的主子回血！🐾</p>
         
         <div class="promo-box">
-            <div style="font-size: 0.8rem; color: #999; margin-bottom: 5px;">限时新人专属</div>
-            <div class="promo-text">注册立领 $40 加币返现</div>
+            <div class="promo-title">🎁 限时专享：买 $40 送 $40</div>
+            <div class="promo-sub">新人注册购物满$40立返$40，相当于白送！</div>
+            <div style="font-size: 0.85rem; margin-top: 8px; color: #666;">以后每笔订单至少再返现 2%</div>
         </div>
 
-        <!-- 请将下方的 href 替换为你真实的 Rakuten 推荐链接 -->
-        <a href="https://www.rakuten.ca/referrer?referrerid=J9l09BkJzsA%3D" class="btn">立即领取 $40 奖励 (Rakuten)</a>
+        <a href="https://www.rakuten.ca/r/你的推荐码" class="btn">立即领取 $40 现金奖励</a>
         
-        <!-- 如果你有第二个链接，可以在这里添加 -->
-        <a href="#" class="btn" style="background: #eef0f2; color: #555;">PetSmart 叠加优惠指南</a>
+        <div class="benefit-list">
+            <div class="benefit-item">✅ 注册 Rakuten 账户（收支票/转账）</div>
+            <div class="benefit-item">✅ 通过 Rakuten 进入 PetSmart 或各大宠网</div>
+            <div class="benefit-item">✅ 叠加 Treats 积分 + 信用卡返现</div>
+            <div style="font-weight: bold; color: #2e7d32; margin-top: 5px;">🔥 喂饭版流程：PetSmart 叠加优惠指南</div>
+        </div>
 
-        <div class="footer-text">提示：建议使用电脑端浏览器确保追踪成功</div>
+        <a href="#" class="btn btn-secondary" style="font-size: 0.95rem;">查看 PetSmart 叠加操作详情</a>
+
+        <div class="footer-text">提示：建议使用电脑端浏览器确保返现追踪成功</div>
     </div>
 </body>
 </html>
