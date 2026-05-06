@@ -5,32 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saga Paws | Canada Pet Savings</title>
     <style>
-        :root { --primary-color: #4CAF50; --blue-color: #1890ff; }
-        body { font-family: -apple-system, sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; background: url('bg.jpg') no-repeat center center fixed; background-size: cover; font-size: 14px; }
-        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(220, 240, 220, 0.82); z-index: 1; }
+        :root { --primary-color: #4CAF50; --blue-link: #007bff; }
+        body { font-family: -apple-system, sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; background: url('bg.jpg') no-repeat center center fixed; background-size: cover; font-size: 15px; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(220, 240, 220, 0.85); z-index: 1; }
         
-        .lang-bar { position: relative; z-index: 100; width: 100%; background: rgba(255, 255, 255, 0.95); padding: 8px 5px; display: flex; justify-content: center; gap: 4px; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .lang-btn { text-decoration: none; color: #444; font-size: 10px; padding: 4px 6px; border-radius: 4px; border: 1px solid #adc6ad; background: #fff; cursor: pointer; }
+        /* 1. 完整十种语言栏 */
+        .lang-bar { position: relative; z-index: 100; width: 100%; background: rgba(255, 255, 255, 0.95); padding: 10px 5px; display: flex; justify-content: center; gap: 5px; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .lang-btn { text-decoration: none; color: #444; font-size: 11px; padding: 4px 8px; border-radius: 4px; border: 1px solid #adc6ad; background: #fff; cursor: pointer; }
         
-        /* 移除顶部多余空间，减小内边距 */
-        .card { position: relative; z-index: 2; background: rgba(255, 255, 255, 0.95); width: 92%; max-width: 460px; border-radius: 30px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); padding: 15px 20px 25px; text-align: center; margin: 15px 0; }
-        h1 { font-size: 1.6rem; margin: 5px 0; color: #1a1a1a; }
-        .subtitle { font-size: 0.9rem; margin-bottom: 10px; color: #444; }
+        /* 3 & 4. 彻底消除顶部空间并显著加宽页面 */
+        .card { position: relative; z-index: 2; background: rgba(255, 255, 255, 0.95); width: 95%; max-width: 700px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); padding: 0 35px 30px; text-align: center; margin: 20px 0; }
+        h1 { font-size: 2rem; margin: 20px 0 5px; color: #1a1a1a; padding-top: 0; }
+        .subtitle { font-size: 1.1rem; margin-bottom: 20px; color: #444; }
 
-        .promo-box { border: 2px solid #ff4d4f; border-radius: 15px; padding: 12px; margin: 12px 0; background: #fff1f0; }
-        .promo-title { color: #ff4d4f; font-weight: 800; font-size: 1.1rem; }
-        .promo-text { font-size: 0.85rem; margin: 5px 0 0; }
+        .promo-box { border: 2px solid #ff4d4f; border-radius: 15px; padding: 15px; margin: 20px 0; background: #fff1f0; }
+        .promo-title { color: #ff4d4f; font-weight: 800; font-size: 1.3rem; }
         
-        .step-list { text-align: left; margin: 15px 0; padding: 0 5px; font-size: 0.85rem; color: #333; line-height: 1.4; }
-        .step-item { margin-bottom: 10px; padding-left: 25px; position: relative; }
-        .step-item::before { content: "✅"; position: absolute; left: 0; font-size: 0.8rem; }
+        /* 列表布局：尽量保持单行显示 */
+        .step-list { text-align: left; margin: 25px 0; padding: 0; font-size: 1.05rem; color: #333; line-height: 1.6; }
+        .step-item { margin-bottom: 12px; padding-left: 35px; position: relative; display: flex; align-items: flex-start; flex-wrap: nowrap; }
+        .step-item::before { content: "✅"; position: absolute; left: 0; }
         
-        /* 链接样式 */
-        .inline-link { color: var(--blue-color); text-decoration: underline; font-weight: bold; cursor: pointer; }
+        /* 2. 蓝色跳转链接 */
+        .inline-link { color: var(--blue-link); text-decoration: underline; font-weight: bold; cursor: pointer; white-space: nowrap; }
 
-        .btn { display: block; color: white; text-decoration: none; padding: 14px; border-radius: 15px; font-weight: bold; font-size: 1rem; margin-bottom: 10px; transition: 0.3s; }
+        .btn { display: block; color: white; text-decoration: none; padding: 18px; border-radius: 18px; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px; transition: 0.3s; }
         .btn-primary { background: #52c41a; }
         .btn-blue { background: #1890ff; }
+        .btn:hover { transform: scale(1.01); opacity: 0.95; }
         #google_translate_element { display: none; }
     </style>
 </head>
@@ -41,9 +43,12 @@
         <button onclick="changeLanguage('en')" class="lang-btn">English</button>
         <button onclick="changeLanguage('fr')" class="lang-btn">Français</button>
         <button onclick="changeLanguage('zh-CN')" class="lang-btn">中文(普)</button>
+        <button onclick="changeLanguage('zh-TW')" class="lang-btn">中文(粤)</button>
         <button onclick="changeLanguage('pa')" class="lang-btn">ਪੰਜਾਬੀ</button>
         <button onclick="changeLanguage('es')" class="lang-btn">Español</button>
+        <button onclick="changeLanguage('ar')" class="lang-btn">العربية</button>
         <button onclick="changeLanguage('tl')" class="lang-btn">Tagalog</button>
+        <button onclick="changeLanguage('ko')" class="lang-btn">한국어</button>
         <button onclick="changeLanguage('vi')" class="lang-btn">Tiếng Việt</button>
         <div id="google_translate_element"></div>
     </div>
@@ -54,30 +59,30 @@
         
         <div class="promo-box">
             <div class="promo-title">🎁 限时福利：买 $40 返 $40</div>
-            <p class="promo-text">通过下方链接注册，首单满$40即返$40现金奖励！</p>
+            <p style="margin: 5px 0 0;">通过下方链接注册，首单满$40即返$40现金奖励！</p>
         </div>
 
         <a href="https://www.rakuten.ca/referrer?referrerid=J9l09BkJzsA%3D" target="_blank" class="btn btn-primary">第一步：点击领取 $40 奖励</a>
 
         <div class="step-list">
             <div class="step-item">
-                <a href="guide_reg.html" target="_blank" class="inline-link">登记返利方式：</a><br>注册后在 Settings 中选择 <b>PayPal</b> 或 <b>Big Fat Check</b> 接收奖励。
+                <span><a href="guide_reg.html" target="_blank" class="inline-link">登记返利方式：</a> 注册后在 Settings 中选择 <b>PayPal</b> 或 <b>Big Fat Check</b> 接收奖励。</span>
             </div>
             <div class="step-item">
-                <strong>正确跳转方法：</strong><br>在 Rakuten 内搜索 PetSmart。建议安装插件，出现红色横条时点击 Activate 激活。
+                <span><strong>正确跳转方法：</strong> 在 Rakuten 内搜索 PetSmart，确保激活右上角红色 <b>Activate</b> 横条。</span>
             </div>
             <div class="step-item">
-                <strong>叠加 AutoShip 优惠：</strong><br>下单时勾选 <b>AutoShip</b>，通常首单可额外减免 <b>35%-50%</b>。
+                <span><strong>叠加 AutoShip 优惠：</strong> 下单勾选 <b>AutoShip</b>，首单通常可额外减免 <b>35%-50%</b>。</span>
             </div>
         </div>
 
-        <a href="guide_reg.html" target="_blank" class="btn btn-blue">查看图文注册指引</a>
-        <p style="font-size: 0.7rem; color: #999; margin-top: 10px;">Tips: 务必关闭 AdBlock 插件以确保返现追踪成功。</p>
+        <a href="guide_reg.html" target="_blank" class="btn btn-blue">查看详细图文注册指引</a>
+        <p style="font-size: 0.8rem; color: #777; margin-top: 15px;">Tips: 建议使用电脑端浏览器并关闭 AdBlock 插件以确保追踪成功。</p>
     </div>
 
     <script type="text/javascript">
         function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'zh-CN', includedLanguages: 'en,fr,zh-CN,pa,es,tl,vi', autoDisplay: false}, 'google_translate_element');
+            new google.translate.TranslateElement({pageLanguage: 'zh-CN', includedLanguages: 'en,fr,zh-CN,zh-TW,pa,es,ar,tl,ko,vi', autoDisplay: false}, 'google_translate_element');
         }
         function changeLanguage(langCode) {
             const select = document.querySelector('.goog-te-combo');
