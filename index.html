@@ -3,76 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saga Paws | 加拿大铲屎官薅福利手册</title>
+    <title>Saga Paws | Pet Savings Guide Canada</title>
     <style>
         :root { --primary-color: #4CAF50; --accent-color: #ff4d4f; }
         body { 
             font-family: -apple-system, system-ui, sans-serif; 
             margin: 0; 
             display: flex; 
-            justify-content: center; 
+            flex-direction: column;
             align-items: center; 
             min-height: 100vh;
-            /* 这里调用你上传的背景图 */
-            background: url('bg1-dog.jpg') no-repeat center center fixed;
+            background: url('bg.jpg') no-repeat center center fixed;
             background-size: cover;
         }
-        /* 增加一个淡化蒙版，让文字清晰 */
-        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.7); z-index: 1; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.6); z-index: 1; }
+        
+        /* 语言栏样式 - 优化多语言排版 */
+        .lang-bar {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            padding: 15px 10px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .lang-btn {
+            text-decoration: none;
+            color: #444;
+            font-size: 0.75rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            background: white;
+            transition: 0.2s;
+        }
+        .lang-btn:hover { background: #f0f0f0; border-color: #bbb; }
         
         .card { 
             position: relative;
             z-index: 2;
             background: rgba(255, 255, 255, 0.95); 
             width: 90%; 
-            max-width: 420px; 
+            max-width: 440px; 
             border-radius: 28px; 
             box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
-            padding: 35px 25px; 
+            padding: 30px 25px; 
             text-align: center; 
+            margin: 30px 0;
         }
         .tag { background: #e8f5e9; color: #2e7d32; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
         h1 { font-size: 1.6rem; margin: 15px 0 10px; color: #1a1a1a; }
-        .intro { font-size: 1rem; color: #444; line-height: 1.5; margin-bottom: 25px; }
-        
         .promo-box { border: 2px solid #ff4d4f; border-radius: 16px; padding: 18px; margin-bottom: 20px; background: #fff1f0; }
-        .promo-title { color: #ff4d4f; font-weight: 800; font-size: 1.2rem; margin-bottom: 5px; }
-        .promo-sub { font-size: 0.9rem; color: #cf1322; }
-
-        .benefit-list { text-align: left; background: #f0f2f5; padding: 15px; border-radius: 12px; margin-bottom: 25px; font-size: 0.9rem; }
-        .benefit-item { margin-bottom: 8px; display: flex; align-items: center; }
-
-        .btn { display: block; background: var(--primary-color); color: white; text-decoration: none; padding: 18px; border-radius: 16px; font-weight: bold; font-size: 1.1rem; transition: 0.3s; margin-bottom: 12px; }
+        .promo-title { color: #ff4d4f; font-weight: 800; font-size: 1.2rem; }
+        .btn { display: block; background: var(--primary-color); color: white; text-decoration: none; padding: 18px; border-radius: 16px; font-weight: bold; font-size: 1.1rem; margin-bottom: 12px; transition: 0.3s; }
         .btn-secondary { background: #1890ff; }
-        .btn:hover { transform: scale(1.02); filter: brightness(1.1); }
-        .footer-text { font-size: 0.75rem; color: #888; margin-top: 15px; }
+        .btn:hover { transform: scale(1.02); }
+
+        #google_translate_element { margin-top: 5px; border-top: 1px solid #eee; padding-top: 10px; width: 100%; text-align: center; }
+        .goog-te-gadget span { display: none !important; } /* 隐藏 Powered by Google */
     </style>
 </head>
 <body>
     <div class="overlay"></div>
+
+    <div class="lang-bar">
+        <!-- 官方语言 -->
+        <a href="javascript:void(0)" onclick="changeLanguage('en')" class="lang-btn">English</a>
+        <a href="javascript:void(0)" onclick="changeLanguage('fr')" class="lang-btn">Français</a>
+        <!-- 前十非官方语言 -->
+        <a href="javascript:void(0)" onclick="changeLanguage('zh-CN')" class="lang-btn">中文(普)</a>
+        <a href="javascript:void(0)" onclick="changeLanguage('zh-TW')" class="lang-btn">中文(粤)</a>
+        <a href="javascript:void(0)" onclick="changeLanguage('pa')" class="lang-btn">ਪੰਜਾਬੀ</a>
+        <a href="javascript:void(0)" onclick="changeLanguage('es')" class="lang-btn">Español</a>
+        <a href="javascript:void(0)" onclick="changeLanguage('ar')" class="lang-btn">العربية</a>
+        <a href="javascript:void(0)" onclick="changeLanguage('tl')" class="lang-btn">Tagalog</a>
+        <a href="javascript:void(0)" onclick="changeLanguage('fa')" class="lang-btn">فارسی</a>
+        <a href="javascript:void(0)" onclick="changeLanguage('ur')" class="lang-btn">اردو</a>
+        <a href="javascript:void(0)" onclick="changeLanguage('ko')" class="lang-btn">한국어</a>
+        <a href="javascript:void(0)" onclick="changeLanguage('vi')" class="lang-btn">Tiếng Việt</a>
+        
+        <!-- 其他选项入口 -->
+        <div id="google_translate_element"></div>
+    </div>
+
     <div class="card">
-        <span class="tag">🇨🇦 加拿大铲屎官专属福利</span>
+        <span class="tag">🇨🇦 Saga Paws Savings</span>
         <h1>Saga Paws</h1>
-        <p class="intro">轻松薅福利，帮你的主子回血！🐾</p>
+        <p>加拿大铲屎官回血攻略，轻松薅福利！🐾</p>
         
         <div class="promo-box">
-            <div class="promo-title">🎁 限时专享：买 $40 送 $40</div>
-            <div class="promo-sub">新人注册购物满$40立返$40，相当于白送！</div>
-            <div style="font-size: 0.85rem; margin-top: 8px; color: #666;">以后每笔订单至少再返现 2%</div>
+            <div class="promo-title">🎁 限时：买 $40 送 $40</div>
+            <p>新人注册购物满$40返$40奖励，以后每单至少再返现 2%</p>
         </div>
 
-        <a href="https://www.rakuten.ca/r/你的推荐码" class="btn">立即领取 $40 现金奖励</a>
-        
-        <div class="benefit-list">
-            <div class="benefit-item">✅ 注册 Rakuten 账户（收支票/转账）</div>
-            <div class="benefit-item">✅ 通过 Rakuten 进入 PetSmart 或各大宠网</div>
-            <div class="benefit-item">✅ 叠加 Treats 积分 + 信用卡返现</div>
-            <div style="font-weight: bold; color: #2e7d32; margin-top: 5px;">🔥 喂饭版流程：PetSmart 叠加优惠指南</div>
-        </div>
-
-        <a href="#" class="btn btn-secondary" style="font-size: 0.95rem;">查看 PetSmart 叠加操作详情</a>
-
-        <div class="footer-text">提示：建议使用电脑端浏览器确保返现追踪成功</div>
+        <a href="https://www.rakuten.ca/referrer?referrerid=J9l09BkJzsA%3D" class="btn">立即领取 $40 现金奖励</a>
+        <a href="guide.html" class="btn btn-secondary">查看叠优惠指南</a>
     </div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'zh-CN',
+                // 包含主要语言，其他语言通过下拉菜单选择
+                includedLanguages: 'en,fr,zh-CN,zh-TW,pa,es,ar,tl,fa,ur,ko,vi,hi,it,de',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+        
+        function changeLanguage(lang) {
+            var selectField = document.querySelector(".goog-te-combo");
+            if (selectField) {
+                selectField.value = lang;
+                selectField.dispatchEvent(new Event('change'));
+            }
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
