@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saga Paws | Pet Savings Guide Canada</title>
+    <title>Saga Paws | Canada Pet Savings</title>
     <style>
-        :root { --primary-color: #4CAF50; --accent-color: #ff4d4f; }
+        :root { --primary-color: #4CAF50; --secondary-color: #1890ff; }
         body { 
             font-family: -apple-system, system-ui, sans-serif; 
             margin: 0; 
@@ -13,102 +13,99 @@
             flex-direction: column;
             align-items: center; 
             min-height: 100vh;
-            /* 确保背景图文件名正确 */
             background: url('bg.jpg') no-repeat center center fixed;
             background-size: cover;
         }
-        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.6); z-index: 1; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(220, 240, 220, 0.8); z-index: 1; }
         
-        /* 语言栏样式 - 提高 z-index 确保可见 */
+        /* 语言栏优化 */
         .lang-bar {
             position: relative;
-            z-index: 999;
+            z-index: 100;
             width: 100%;
-            background: rgba(255,255,255,0.98);
-            padding: 12px 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 5px;
             display: flex;
             justify-content: center;
-            gap: 6px;
+            gap: 5px;
             flex-wrap: wrap;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         .lang-btn {
             text-decoration: none;
-            color: #333;
-            font-size: 11px;
-            padding: 5px 10px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            background: #fff;
+            color: #444;
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid #adc6ad;
+            background: rgba(255,255,255,0.7);
             cursor: pointer;
+            transition: all 0.2s;
         }
-        .lang-btn:hover { background: #f5f5f5; }
+        .lang-btn:hover { background: #fff; border-color: var(--primary-color); transform: translateY(-1px); }
         
         .card { 
             position: relative;
             z-index: 2;
-            background: rgba(255, 255, 255, 0.95); 
+            background: rgba(255, 255, 255, 0.9); 
             width: 90%; 
-            max-width: 440px; 
-            border-radius: 28px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
-            padding: 30px 25px; 
+            max-width: 450px; 
+            border-radius: 40px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
+            padding: 40px 30px; 
             text-align: center; 
-            margin: 20px 0;
+            margin: 40px 0;
         }
-        .tag { background: #e8f5e9; color: #2e7d32; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
-        h1 { font-size: 1.8rem; margin: 15px 0 10px; color: #1a1a1a; }
+        .tag { color: #2e7d32; font-size: 0.9rem; font-weight: bold; margin-bottom: 10px; display: block; }
+        h1 { font-size: 2.2rem; margin: 10px 0; color: #1a1a1a; }
+        .promo-box { border: 2px solid #ff4d4f; border-radius: 20px; padding: 20px; margin: 25px 0; background: transparent; }
+        .promo-title { color: #ff4d4f; font-weight: 800; font-size: 1.3rem; margin-bottom: 10px; }
         
-        .promo-box { border: 2px solid #ff4d4f; border-radius: 16px; padding: 18px; margin-bottom: 20px; background: #fff1f0; }
-        .promo-title { color: #ff4d4f; font-weight: 800; font-size: 1.2rem; margin-bottom: 5px; }
+        .btn { display: block; color: white; text-decoration: none; padding: 18px; border-radius: 20px; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px; transition: 0.3s; }
+        .btn-primary { background: #52c41a; }
+        .btn-blue { background: #1890ff; }
+        .btn:hover { opacity: 0.9; transform: scale(1.02); }
 
-        /* 按钮使用 target="_blank" 会打开新标签 */
-        .btn { display: block; background: var(--primary-color); color: white; text-decoration: none; padding: 18px; border-radius: 16px; font-weight: bold; font-size: 1.1rem; margin-bottom: 12px; transition: 0.3s; }
-        .btn-secondary { background: #1890ff; }
-        .btn:hover { transform: scale(1.02); }
-
-        #google_translate_element { margin-top: 5px; width: 100%; text-align: center; }
-        /* 强制显示 Google 翻译，防止被隐藏 */
-        .goog-te-gadget { color: transparent !important; }
-        .goog-te-gadget .goog-te-combo { color: #333 !important; border: 1px solid #ccc; padding: 3px; border-radius: 4px; }
+        /* 隐藏 Google 原生工具条 */
+        #google_translate_element { display: none; }
+        .goog-te-banner-frame { display: none !important; }
+        body { top: 0 !important; }
     </style>
 </head>
 <body>
     <div class="overlay"></div>
 
     <div class="lang-bar">
-        <a href="javascript:void(0)" onclick="changeLanguage('en')" class="lang-btn">English</a>
-        <a href="javascript:void(0)" onclick="changeLanguage('fr')" class="lang-btn">Français</a>
-        <a href="javascript:void(0)" onclick="changeLanguage('zh-CN')" class="lang-btn">中文(普)</a>
-        <a href="javascript:void(0)" onclick="changeLanguage('zh-TW')" class="lang-btn">中文(粤)</a>
-        <a href="javascript:void(0)" onclick="changeLanguage('pa')" class="lang-btn">ਪੰਜਾਬੀ</a>
-        <a href="javascript:void(0)" onclick="changeLanguage('es')" class="lang-btn">Español</a>
-        <a href="javascript:void(0)" onclick="changeLanguage('ar')" class="lang-btn">العربية</a>
-        <a href="javascript:void(0)" onclick="changeLanguage('tl')" class="lang-btn">Tagalog</a>
-        <a href="javascript:void(0)" onclick="changeLanguage('fa')" class="lang-btn">فارسی</a>
-        <a href="javascript:void(0)" onclick="changeLanguage('ur')" class="lang-btn">اردو</a>
-        <a href="javascript:void(0)" onclick="changeLanguage('ko')" class="lang-btn">한국어</a>
-        <a href="javascript:void(0)" onclick="changeLanguage('vi')" class="lang-btn">Tiếng Việt</a>
-        <!-- Google 翻译下拉框，作为“其他语言”入口 -->
+        <button onclick="changeLanguage('en')" class="lang-btn">English</button>
+        <button onclick="changeLanguage('fr')" class="lang-btn">Français</button>
+        <button onclick="changeLanguage('zh-CN')" class="lang-btn">中文(普)</button>
+        <button onclick="changeLanguage('zh-TW')" class="lang-btn">中文(粤)</button>
+        <button onclick="changeLanguage('pa')" class="lang-btn">ਪੰਜਾਬੀ</button>
+        <button onclick="changeLanguage('es')" class="lang-btn">Español</button>
+        <button onclick="changeLanguage('ar')" class="lang-btn">العربية</button>
+        <button onclick="changeLanguage('tl')" class="lang-btn">Tagalog</button>
+        <button onclick="changeLanguage('fa')" class="lang-btn">فارسی</button>
+        <button onclick="changeLanguage('ur')" class="lang-btn">اردو</button>
+        <button onclick="changeLanguage('ko')" class="lang-btn">한국어</button>
+        <button onclick="changeLanguage('vi')" class="lang-btn">Tiếng Việt</button>
         <div id="google_translate_element"></div>
     </div>
 
     <div class="card">
-        <span class="tag">🇨🇦 加拿大铲屎官专属福利</span>
+        <span class="tag">🇨🇦 Saga Paws Savings</span>
         <h1>Saga Paws</h1>
-        <p>轻松薅福利，帮你的主子回血！🐾</p>
+        <p style="color: #444;">加拿大铲屎官回血攻略，轻松薅福利！🐾</p>
         
         <div class="promo-box">
-            <div class="promo-title">🎁 限时专享：买 $40 送 $40</div>
-            <p>新人注册购物满$40立返$40奖励，相当于白送！</p>
-            <div style="font-size: 0.85rem; color: #666;">以后每笔订单至少再返现 2%</div>
+            <div class="promo-title">🎁 限时：买 $40 送 $40</div>
+            <p style="margin: 0; font-size: 1.05rem;">新人注册购物满$40返$40奖励</p>
+            <p style="margin: 5px 0 0; font-size: 0.9rem; color: #666;">以后每单至少再返现 2%</p>
         </div>
 
-        <!-- 使用 target="_blank" 确保在新网页打开 -->
-        <a href="https://www.rakuten.ca/referrer?referrerid=J9l09BkJzsA%3D" target="_blank" class="btn">立即领取 $40 现金奖励</a>
-        <a href="guide.html" target="_blank" class="btn btn-secondary">查看 PetSmart 叠加操作详情</a>
-
-        <div style="font-size: 0.75rem; color: #888; margin-top: 15px;">提示：建议使用电脑端浏览器确保返现追踪成功</div>
+        <a href="https://www.rakuten.ca/referrer?referrerid=J9l09BkJzsA%3D" target="_blank" class="btn btn-primary">立即领取 $40 现金奖励</a>
+        <a href="guide.html" target="_blank" class="btn btn-blue">查看叠加优惠指南</a>
+        
+        <p style="font-size: 0.8rem; color: #888; margin-top: 20px;">提示：建议使用电脑端浏览器确保返现追踪成功</p>
     </div>
 
     <script type="text/javascript">
@@ -116,19 +113,18 @@
             new google.translate.TranslateElement({
                 pageLanguage: 'zh-CN',
                 includedLanguages: 'en,fr,zh-CN,zh-TW,pa,es,ar,tl,fa,ur,ko,vi',
-                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
                 autoDisplay: false
             }, 'google_translate_element');
         }
 
-        function changeLanguage(lang) {
-            var selectField = document.querySelector(".goog-te-combo");
-            if (selectField) {
-                selectField.value = lang;
-                selectField.dispatchEvent(new Event('change'));
+        function changeLanguage(langCode) {
+            const select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = langCode;
+                select.dispatchEvent(new Event('change'));
             } else {
-                // 如果脚本没加载完，给个提示
-                alert("翻译组件加载中，请稍候...");
+                // 如果还没加载好，等待 500ms 后重试
+                setTimeout(() => changeLanguage(langCode), 500);
             }
         }
     </script>
