@@ -7,9 +7,35 @@
     <style>
         :root { --primary-color: #4CAF50; --bg-color: #e8f5e9; }
         body { font-family: -apple-system, sans-serif; background-color: var(--bg-color); margin: 0; color: #333; line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-        header { text-align: center; margin-bottom: 40px; }
-        .back-link { text-decoration: none; color: var(--primary-color); font-weight: bold; font-size: 0.9rem; }
+        
+        /* 保持与首页一致的语言栏样式 */
+        .lang-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px 5px;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .lang-btn {
+            text-decoration: none;
+            color: #444;
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #adc6ad;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        .container { max-width: 850px; margin: 0 auto; padding: 20px 20px; }
+        header { text-align: center; margin-bottom: 30px; }
+        .back-link { text-decoration: none; color: var(--primary-color); font-weight: bold; font-size: 1rem; }
         
         .step-card { background: white; border-radius: 20px; padding: 25px; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
         .step-num { display: inline-block; background: var(--primary-color); color: white; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: bold; margin-right: 10px; }
@@ -20,57 +46,92 @@
         .highlight { color: #ff4d4f; font-weight: bold; }
         
         footer { text-align: center; padding: 40px 0; color: #888; font-size: 0.8rem; }
-        .btn-bottom { display: inline-block; background: var(--primary-color); color: white; text-decoration: none; padding: 15px 30px; border-radius: 12px; font-weight: bold; margin-top: 20px; }
+        .btn-bottom { display: inline-block; background: var(--primary-color); color: white; text-decoration: none; padding: 18px 40px; border-radius: 15px; font-weight: bold; font-size: 1.2rem; margin-top: 20px; transition: 0.3s; }
+        .btn-bottom:hover { transform: scale(1.02); opacity: 0.9; }
+
+        #google_translate_element { display: none; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <a href="index.html" class="back-link">← 返回主页</a>
-        <h1 style="margin-top: 10px;">Rakuten 注册与返利设置教程</h1>
-        <p>只需 3 分钟，开启你的加拿大养宠回血之旅</p>
-    </header>
-
-    <!-- 步骤 1 -->
-    <div class="step-card">
-        <span class="step-num">1</span>
-        <h2>选择注册方式</h2>
-        <p>点击首页入口后，你可以选择直接输入 <span class="highlight">Email</span> 注册，或者使用 <span class="highlight">Google/Facebook/Apple</span> 账号快速一键登录（推荐使用常用 Google 账号，方便后续追踪）。</p>
-        <img src="reg1.jpg" alt="注册页面" class="guide-img">
+    <!-- 顶部语言切换栏 -->
+    <div class="lang-bar">
+        <button onclick="changeLanguage('en')" class="lang-btn">English</button>
+        <button onclick="changeLanguage('fr')" class="lang-btn">Français</button>
+        <button onclick="changeLanguage('zh-CN')" class="lang-btn">中文(普)</button>
+        <button onclick="changeLanguage('zh-TW')" class="lang-btn">中文(粤)</button>
+        <button onclick="changeLanguage('pa')" class="lang-btn">ਪੰਜਾਬੀ</button>
+        <button onclick="changeLanguage('es')" class="lang-btn">Español</button>
+        <button onclick="changeLanguage('ar')" class="lang-btn">العربية</button>
+        <button onclick="changeLanguage('tl')" class="lang-btn">Tagalog</button>
+        <button onclick="changeLanguage('ko')" class="lang-btn">한국어</button>
+        <button onclick="changeLanguage('vi')" class="lang-btn">Tiếng Việt</button>
+        <div id="google_translate_element"></div>
     </div>
 
-    <!-- 步骤 2 -->
-    <div class="step-card">
-        <span class="step-num">2</span>
-        <h2>确认账号授权</h2>
-        <p>如果选择第三方登录，系统会弹出确认框。确保选择你准备接收返利通知的账号即可。</p>
-        <img src="reg2.jpg" alt="快速登录" class="guide-img">
-        <img src="reg3.jpg" alt="确认账号" class="guide-img" style="margin-top: 20px;">
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">← 返回 Saga Paws 首页</a>
+            <h1 style="margin-top: 15px; color: #1a1a1a;">Rakuten 注册与返利设置教程</h1>
+            <p>跟着截图操作，只需 3 分钟即可完成设置</p>
+        </header>
+
+        <div class="step-card">
+            <span class="step-num">1</span>
+            <h2>选择注册方式</h2>
+            <p>点击注册链接后，你可以输入 <span class="highlight">Email</span>，或使用 <span class="highlight">Google/Facebook/Apple</span> 账号一键登录。</p>
+            <img src="reg1.jpg" alt="Rakuten Registration Step 1" class="guide-img">
+        </div>
+
+        <div class="step-card">
+            <span class="step-num">2</span>
+            <h2>确认账号授权</h2>
+            <p>系统会弹出第三方登录确认框，选择你常用的账号即可完成关联。</p>
+            <img src="reg2.jpg" alt="Rakuten Registration Step 2" class="guide-img">
+            <img src="reg3.jpg" alt="Rakuten Registration Step 3" class="guide-img" style="margin-top: 15px;">
+        </div>
+
+        <div class="step-card">
+            <span class="step-num">3</span>
+            <h2>设置你的收款方式</h2>
+            <p>在 <span class="highlight">Account Settings</span> 中，你可以选择以下三种最常用的方式接收返利：</p>
+            <ul>
+                <li><strong>Interac e-Transfer</strong>: 加拿大本地最快、最直接的转账方式。</li>
+                <li><strong>PayPal</strong>: 实时入账，适合网购达人。</li>
+                <li><strong>Big Fat Cheque</strong>: 传统的邮寄支票。</li>
+            </ul>
+            <img src="reg4.jpg" alt="Rakuten Payment Settings" class="guide-img">
+        </div>
+
+        <div style="text-align: center;">
+            <p>一切就绪？点击下方链接开始领取你的奖励：</p>
+            <a href="https://www.rakuten.ca/referrer?referrerid=J9l09BkJzsA%3D" target="_blank" class="btn-bottom">立即注册并领取 $40</a>
+        </div>
+
+        <footer>
+            <p>© 2026 Saga Paws | Canada Pet Savings Guide</p>
+        </footer>
     </div>
 
-    <!-- 步骤 3 -->
-    <div class="step-card">
-        <span class="step-num">3</span>
-        <h2>最重要：设置收款方式</h2>
-        <p>注册成功后，点击右上角头像进入 <span class="highlight">Account Settings</span>，下拉找到支付选项：</p>
-        <ul>
-            <li><strong>Interac e-Transfer</strong>: 最快最方便，直接打入你的加拿大银行账户。</li>
-            <li><strong>PayPal</strong>: 适合经常在网上消费的朋友。</li>
-            <li><strong>Big Fat Cheque</strong>: 传统的纸质支票邮寄到家，很有仪式感。</li>
-        </ul>
-        <img src="reg4.jpg" alt="收款设置" class="guide-img">
-    </div>
-
-    <div style="text-align: center;">
-        <p>准备好了吗？现在就去领取你的 $40 奖励：</p>
-        <a href="https://www.rakuten.ca/referrer?referrerid=J9l09BkJzsA%3D" target="_blank" class="btn-bottom">立即注册并领取 $40</a>
-    </div>
-
-    <footer>
-        <p>© 2026 Saga Paws | 指南内容基于加拿大 Rakuten 实测</p>
-    </footer>
-</div>
-
+    <!-- Google 翻译脚本 -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'zh-CN', 
+                includedLanguages: 'en,fr,zh-CN,zh-TW,pa,es,ar,tl,ko,vi', 
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+        function changeLanguage(langCode) {
+            const select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = langCode;
+                select.dispatchEvent(new Event('change'));
+            } else {
+                setTimeout(() => changeLanguage(langCode), 500);
+            }
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
