@@ -5,71 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saga Paws | Canada Pet Savings</title>
     <style>
-        :root { --primary-color: #4CAF50; --secondary-color: #1890ff; }
-        body { 
-            font-family: -apple-system, system-ui, sans-serif; 
-            margin: 0; 
-            display: flex; 
-            flex-direction: column;
-            align-items: center; 
-            min-height: 100vh;
-            background: url('bg.jpg') no-repeat center center fixed;
-            background-size: cover;
-        }
-        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(220, 240, 220, 0.8); z-index: 1; }
+        :root { --primary-color: #4CAF50; --blue-color: #1890ff; }
+        body { font-family: -apple-system, sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; background: url('bg.jpg') no-repeat center center fixed; background-size: cover; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(220, 240, 220, 0.82); z-index: 1; }
         
-        /* 语言栏优化 */
-        .lang-bar {
-            position: relative;
-            z-index: 100;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 15px 5px;
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-            flex-wrap: wrap;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .lang-btn {
-            text-decoration: none;
-            color: #444;
-            font-size: 12px;
-            padding: 6px 10px;
-            border-radius: 6px;
-            border: 1px solid #adc6ad;
-            background: rgba(255,255,255,0.7);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .lang-btn:hover { background: #fff; border-color: var(--primary-color); transform: translateY(-1px); }
+        .lang-bar { position: relative; z-index: 100; width: 100%; background: rgba(255, 255, 255, 0.95); padding: 12px 5px; display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .lang-btn { text-decoration: none; color: #444; font-size: 11px; padding: 5px 8px; border-radius: 4px; border: 1px solid #adc6ad; background: #fff; cursor: pointer; }
         
-        .card { 
-            position: relative;
-            z-index: 2;
-            background: rgba(255, 255, 255, 0.9); 
-            width: 90%; 
-            max-width: 450px; 
-            border-radius: 40px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
-            padding: 40px 30px; 
-            text-align: center; 
-            margin: 40px 0;
-        }
-        .tag { color: #2e7d32; font-size: 0.9rem; font-weight: bold; margin-bottom: 10px; display: block; }
-        h1 { font-size: 2.2rem; margin: 10px 0; color: #1a1a1a; }
-        .promo-box { border: 2px solid #ff4d4f; border-radius: 20px; padding: 20px; margin: 25px 0; background: transparent; }
-        .promo-title { color: #ff4d4f; font-weight: 800; font-size: 1.3rem; margin-bottom: 10px; }
+        .card { position: relative; z-index: 2; background: rgba(255, 255, 255, 0.95); width: 92%; max-width: 480px; border-radius: 35px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); padding: 35px 25px; text-align: center; margin: 30px 0; }
+        .promo-box { border: 2px solid #ff4d4f; border-radius: 20px; padding: 20px; margin: 20px 0; background: #fff1f0; }
+        .promo-title { color: #ff4d4f; font-weight: 800; font-size: 1.3rem; }
         
-        .btn { display: block; color: white; text-decoration: none; padding: 18px; border-radius: 20px; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px; transition: 0.3s; }
+        /* 攻略列表样式 */
+        .step-list { text-align: left; margin: 20px 0; padding: 0 10px; font-size: 0.95rem; color: #333; line-height: 1.6; }
+        .step-item { margin-bottom: 15px; padding-left: 30px; position: relative; }
+        .step-item::before { content: "✅"; position: absolute; left: 0; }
+
+        .btn { display: block; color: white; text-decoration: none; padding: 18px; border-radius: 18px; font-weight: bold; font-size: 1.15rem; margin-bottom: 12px; transition: 0.3s; }
         .btn-primary { background: #52c41a; }
         .btn-blue { background: #1890ff; }
-        .btn:hover { opacity: 0.9; transform: scale(1.02); }
-
-        /* 隐藏 Google 原生工具条 */
         #google_translate_element { display: none; }
-        .goog-te-banner-frame { display: none !important; }
-        body { top: 0 !important; }
     </style>
 </head>
 <body>
@@ -79,53 +34,48 @@
         <button onclick="changeLanguage('en')" class="lang-btn">English</button>
         <button onclick="changeLanguage('fr')" class="lang-btn">Français</button>
         <button onclick="changeLanguage('zh-CN')" class="lang-btn">中文(普)</button>
-        <button onclick="changeLanguage('zh-TW')" class="lang-btn">中文(粤)</button>
         <button onclick="changeLanguage('pa')" class="lang-btn">ਪੰਜਾਬੀ</button>
         <button onclick="changeLanguage('es')" class="lang-btn">Español</button>
-        <button onclick="changeLanguage('ar')" class="lang-btn">العربية</button>
         <button onclick="changeLanguage('tl')" class="lang-btn">Tagalog</button>
-        <button onclick="changeLanguage('fa')" class="lang-btn">فارسی</button>
-        <button onclick="changeLanguage('ur')" class="lang-btn">اردو</button>
-        <button onclick="changeLanguage('ko')" class="lang-btn">한국어</button>
         <button onclick="changeLanguage('vi')" class="lang-btn">Tiếng Việt</button>
         <div id="google_translate_element"></div>
     </div>
 
     <div class="card">
-        <span class="tag">🇨🇦 Saga Paws Savings</span>
         <h1>Saga Paws</h1>
-        <p style="color: #444;">加拿大铲屎官回血攻略，轻松薅福利！🐾</p>
+        <p>多伦多养宠“套利”省钱全攻略 🐾</p>
         
         <div class="promo-box">
-            <div class="promo-title">🎁 限时：买 $40 送 $40</div>
-            <p style="margin: 0; font-size: 1.05rem;">新人注册购物满$40返$40奖励</p>
-            <p style="margin: 5px 0 0; font-size: 0.9rem; color: #666;">以后每单至少再返现 2%</p>
+            <div class="promo-title">🎁 限时福利：买 $40 返 $40</div>
+            <p>通过下方链接注册，首单满$40即返$40现金奖励！</p>
         </div>
 
-        <a href="https://www.rakuten.ca/referrer?referrerid=J9l09BkJzsA%3D" target="_blank" class="btn btn-primary">立即领取 $40 现金奖励</a>
-        <a href="guide.html" target="_blank" class="btn btn-blue">查看叠加优惠指南</a>
-        
-        <p style="font-size: 0.8rem; color: #888; margin-top: 20px;">提示：建议使用电脑端浏览器确保返现追踪成功</p>
+        <a href="https://www.rakuten.ca/referrer?referrerid=J9l09BkJzsA%3D" target="_blank" class="btn btn-primary">第一步：点击领取 $40 奖励</a>
+
+        <div class="step-list">
+            <div class="step-item">
+                <strong>登记返利方式：</strong><br>注册后在 Settings 中选择 <b>PayPal</b> 或 <b>Big Fat Check (支票)</b> 接收你的奖励。
+            </div>
+            <div class="step-item">
+                <strong>正确跳转方法：</strong><br>在 Rakuten 内搜索 PetSmart 并点击进入。建议安装 <b>Rakuten 浏览器插件</b>，当进入官网时右上角出现红色横条，点击“Activate”即可激活追踪。
+            </div>
+            <div class="step-item">
+                <strong>叠加 AutoShip 优惠：</strong><br>下单时勾选 <b>AutoShip (自动订阅)</b>，通常首单可额外减免 <b>35%-50%</b>。拿到返现后可随时取消订阅。
+            </div>
+        </div>
+
+        <a href="guide.html" target="_blank" class="btn btn-blue">查看图文操作指南</a>
+        <p style="font-size: 0.75rem; color: #999;">Tips: 务必关闭 AdBlock 插件以确保返现追踪成功。</p>
     </div>
 
     <script type="text/javascript">
         function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'zh-CN',
-                includedLanguages: 'en,fr,zh-CN,zh-TW,pa,es,ar,tl,fa,ur,ko,vi',
-                autoDisplay: false
-            }, 'google_translate_element');
+            new google.translate.TranslateElement({pageLanguage: 'zh-CN', includedLanguages: 'en,fr,zh-CN,pa,es,tl,vi', autoDisplay: false}, 'google_translate_element');
         }
-
         function changeLanguage(langCode) {
             const select = document.querySelector('.goog-te-combo');
-            if (select) {
-                select.value = langCode;
-                select.dispatchEvent(new Event('change'));
-            } else {
-                // 如果还没加载好，等待 500ms 后重试
-                setTimeout(() => changeLanguage(langCode), 500);
-            }
+            if (select) { select.value = langCode; select.dispatchEvent(new Event('change')); }
+            else { setTimeout(() => changeLanguage(langCode), 500); }
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
