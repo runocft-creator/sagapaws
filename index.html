@@ -6,21 +6,29 @@
     <title>Saga Paws | Canada Pet Savings</title>
     <style>
         :root { --primary-color: #4CAF50; --blue-color: #1890ff; }
-        body { font-family: -apple-system, sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; background: url('bg.jpg') no-repeat center center fixed; background-size: cover; }
+        body { font-family: -apple-system, sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; background: url('bg.jpg') no-repeat center center fixed; background-size: cover; font-size: 14px; }
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(220, 240, 220, 0.82); z-index: 1; }
         
-        .lang-bar { position: relative; z-index: 100; width: 100%; background: rgba(255, 255, 255, 0.95); padding: 12px 5px; display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .lang-btn { text-decoration: none; color: #444; font-size: 11px; padding: 5px 8px; border-radius: 4px; border: 1px solid #adc6ad; background: #fff; cursor: pointer; }
+        .lang-bar { position: relative; z-index: 100; width: 100%; background: rgba(255, 255, 255, 0.95); padding: 8px 5px; display: flex; justify-content: center; gap: 4px; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .lang-btn { text-decoration: none; color: #444; font-size: 10px; padding: 4px 6px; border-radius: 4px; border: 1px solid #adc6ad; background: #fff; cursor: pointer; }
         
-        .card { position: relative; z-index: 2; background: rgba(255, 255, 255, 0.95); width: 92%; max-width: 480px; border-radius: 35px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); padding: 35px 25px; text-align: center; margin: 30px 0; }
-        .promo-box { border: 2px solid #ff4d4f; border-radius: 20px; padding: 20px; margin: 20px 0; background: #fff1f0; }
-        .promo-title { color: #ff4d4f; font-weight: 800; font-size: 1.3rem; }
-        
-        .step-list { text-align: left; margin: 20px 0; padding: 0 10px; font-size: 0.95rem; color: #333; line-height: 1.6; }
-        .step-item { margin-bottom: 15px; padding-left: 30px; position: relative; }
-        .step-item::before { content: "✅"; position: absolute; left: 0; }
+        /* 移除顶部多余空间，减小内边距 */
+        .card { position: relative; z-index: 2; background: rgba(255, 255, 255, 0.95); width: 92%; max-width: 460px; border-radius: 30px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); padding: 15px 20px 25px; text-align: center; margin: 15px 0; }
+        h1 { font-size: 1.6rem; margin: 5px 0; color: #1a1a1a; }
+        .subtitle { font-size: 0.9rem; margin-bottom: 10px; color: #444; }
 
-        .btn { display: block; color: white; text-decoration: none; padding: 18px; border-radius: 18px; font-weight: bold; font-size: 1.15rem; margin-bottom: 12px; transition: 0.3s; }
+        .promo-box { border: 2px solid #ff4d4f; border-radius: 15px; padding: 12px; margin: 12px 0; background: #fff1f0; }
+        .promo-title { color: #ff4d4f; font-weight: 800; font-size: 1.1rem; }
+        .promo-text { font-size: 0.85rem; margin: 5px 0 0; }
+        
+        .step-list { text-align: left; margin: 15px 0; padding: 0 5px; font-size: 0.85rem; color: #333; line-height: 1.4; }
+        .step-item { margin-bottom: 10px; padding-left: 25px; position: relative; }
+        .step-item::before { content: "✅"; position: absolute; left: 0; font-size: 0.8rem; }
+        
+        /* 链接样式 */
+        .inline-link { color: var(--blue-color); text-decoration: underline; font-weight: bold; cursor: pointer; }
+
+        .btn { display: block; color: white; text-decoration: none; padding: 14px; border-radius: 15px; font-weight: bold; font-size: 1rem; margin-bottom: 10px; transition: 0.3s; }
         .btn-primary { background: #52c41a; }
         .btn-blue { background: #1890ff; }
         #google_translate_element { display: none; }
@@ -42,18 +50,18 @@
 
     <div class="card">
         <h1>Saga Paws</h1>
-        <p>多伦多养宠“套利”省钱全攻略 🐾</p>
+        <p class="subtitle">多伦多养宠“套利”省钱全攻略 🐾</p>
         
         <div class="promo-box">
             <div class="promo-title">🎁 限时福利：买 $40 返 $40</div>
-            <p>通过下方链接注册，首单满$40即返$40现金奖励！</p>
+            <p class="promo-text">通过下方链接注册，首单满$40即返$40现金奖励！</p>
         </div>
 
         <a href="https://www.rakuten.ca/referrer?referrerid=J9l09BkJzsA%3D" target="_blank" class="btn btn-primary">第一步：点击领取 $40 奖励</a>
 
         <div class="step-list">
             <div class="step-item">
-                <strong>登记返利方式：</strong><br>注册后在 Settings 中选择 <b>PayPal</b> 或 <b>Big Fat Check</b> 接收奖励。
+                <a href="guide_reg.html" target="_blank" class="inline-link">登记返利方式：</a><br>注册后在 Settings 中选择 <b>PayPal</b> 或 <b>Big Fat Check</b> 接收奖励。
             </div>
             <div class="step-item">
                 <strong>正确跳转方法：</strong><br>在 Rakuten 内搜索 PetSmart。建议安装插件，出现红色横条时点击 Activate 激活。
@@ -63,9 +71,8 @@
             </div>
         </div>
 
-        <!-- 关键更新：跳转链接指向 guide_reg.html -->
         <a href="guide_reg.html" target="_blank" class="btn btn-blue">查看图文注册指引</a>
-        <p style="font-size: 0.75rem; color: #999;">Tips: 务必关闭 AdBlock 插件以确保返现追踪成功。</p>
+        <p style="font-size: 0.7rem; color: #999; margin-top: 10px;">Tips: 务必关闭 AdBlock 插件以确保返现追踪成功。</p>
     </div>
 
     <script type="text/javascript">
