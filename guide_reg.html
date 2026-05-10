@@ -5,57 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rakuten 注册与设置指南 | Saga Paws</title>
     <style>
-        :root { --primary-color: #4CAF50; --bg-color: #e8f5e9; }
+        :root { --primary-color: #4CAF50; --bg-color: #f4f7f4; --blue-link: #007bff; }
         body { font-family: -apple-system, sans-serif; background-color: var(--bg-color); margin: 0; color: #333; line-height: 1.6; }
         
-        /* 强制显示的语言栏 */
+        /* 语言选项栏 */
         .lang-bar {
-            position: relative; 
-            z-index: 9999;
-            width: 100%;
-            background: #ffffff;
-            padding: 12px 0;
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative; z-index: 100; width: 100%; background: #fff; padding: 10px 0;
+            display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         .lang-btn {
-            text-decoration: none;
-            color: #444;
-            font-size: 12px;
-            padding: 6px 12px;
-            border-radius: 6px;
-            border: 1px solid #adc6ad;
-            background: #fff;
-            cursor: pointer;
-            transition: 0.2s;
+            text-decoration: none; color: #444; font-size: 11px; padding: 4px 10px;
+            border-radius: 4px; border: 1px solid #adc6ad; background: #fff; cursor: pointer;
         }
-        .lang-btn:hover { background: #f0fdf4; border-color: var(--primary-color); }
 
-        .container { max-width: 850px; margin: 0 auto; padding: 20px; }
-        header { text-align: center; margin-bottom: 30px; }
-        .back-link { text-decoration: none; color: var(--primary-color); font-weight: bold; }
+        .container { max-width: 850px; margin: 0 auto; padding: 10px 20px 40px; }
+        header { text-align: center; margin-bottom: 25px; }
+        .back-link { text-decoration: none; color: var(--primary-color); font-weight: bold; font-size: 0.9rem; }
         
-        .step-card { background: white; border-radius: 20px; padding: 25px; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .step-num { display: inline-block; background: var(--primary-color); color: white; width: 30px; height: 30px; border-radius: 50%; text-align: center; line-height: 30px; font-weight: bold; margin-right: 10px; }
-        h2 { display: inline; font-size: 1.4rem; vertical-align: middle; color: #1a1a1a; }
+        .step-card { background: white; border-radius: 20px; padding: 25px; margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .step-num { display: inline-block; background: var(--primary-color); color: white; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: bold; margin-right: 10px; }
+        h2 { display: inline; font-size: 1.3rem; vertical-align: middle; color: #1a1a1a; }
         
-        .guide-img { width: 100%; border-radius: 12px; border: 1px solid #eee; margin-top: 15px; display: block; }
+        .guide-img { width: 100%; border-radius: 12px; border: 1px solid #eee; margin-top: 15px; }
         .highlight { color: #ff4d4f; font-weight: bold; }
         
+        /* 新增：正规化服务页脚 */
+        .service-footer { 
+            margin-top: 40px; border-top: 1px solid #ddd; padding-top: 20px; 
+            display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; 
+        }
+        .service-link { color: #666; text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
+        .service-link:hover { color: var(--primary-color); }
+        
+        .disclaimer { 
+            background: #eee; border-radius: 10px; padding: 15px; margin-top: 20px; 
+            font-size: 0.75rem; color: #888; text-align: center; 
+        }
+
         .btn-bottom { display: inline-block; background: var(--primary-color); color: white; text-decoration: none; padding: 18px 45px; border-radius: 15px; font-weight: bold; font-size: 1.2rem; margin-top: 20px; }
         
-        /* 隐藏 Google 默认外观 */
         #google_translate_element { display: none !important; }
-        .goog-te-banner-frame { display: none !important; }
-        body { top: 0 !important; }
     </style>
 </head>
 <body>
 
-    <!-- 语言选项栏：确保出现在最顶部 -->
     <div class="lang-bar">
         <button onclick="changeLanguage('en')" class="lang-btn">English</button>
         <button onclick="changeLanguage('fr')" class="lang-btn">Français</button>
@@ -73,44 +66,39 @@
     <div class="container">
         <header>
             <a href="index.html" class="back-link">← 返回 Saga Paws 首页</a>
-            <h1 style="margin: 15px 0 5px;">Rakuten 注册与返利设置教程</h1>
-            <p style="color: #666;">Step-by-Step Guide for Rakuten Canada</p>
+            <h1 style="margin: 10px 0 5px;">Rakuten 注册与返利收款设置指引</h1>
+            <p style="color: #666; margin-top: 5px;">官方安全认证渠道 · 资金实时追踪</p>
         </header>
 
         <div class="step-card">
             <span class="step-num">1</span>
-            <h2>选择注册方式</h2>
-            <p>通过推荐链接进入后，建议使用 <span class="highlight">Google 一键登录</span>，系统会自动关联你的邮箱，确保返现追踪最稳定。</p>
+            <h2>注册与安全验证</h2>
+            <p>点击注册链接后，建议使用 <span class="highlight">Google 一键登录</span>。这是加拿大最稳定的返现追踪方式，能有效避免丢单。</p>
             <img src="reg1.jpg" class="guide-img">
         </div>
 
         <div class="step-card">
             <span class="step-num">2</span>
-            <h2>确认账号关联</h2>
-            <p>在弹出的 Google 窗口中确认授权。如果你有多个邮箱，请务必记住注册时使用的这一个。</p>
-            <img src="reg2.jpg" class="guide-img">
-            <img src="reg3.jpg" class="guide-img" style="margin-top: 15px;">
-        </div>
-
-        <div class="step-card">
-            <span class="step-num">3</span>
-            <h2>绑定收款方式 (Payment)</h2>
-            <p>这是拿钱的关键。在 <span class="highlight">Account Settings</span> 页面，选择你的收款方式：</p>
-            <ul>
-                <li><strong>Interac e-Transfer</strong>: 填入你的常用邮箱（必须支持自动存入）。</li>
-                <li><strong>PayPal</strong>: 绑定你的 PayPal 账号。</li>
-                <li><strong>Big Fat Cheque</strong>: 填入真实的加拿大街道邮寄地址。</li>
-            </ul>
+            <h2>绑定 e-Transfer 或 PayPal</h2>
+            <p>在 <span class="highlight">Account Settings</span> 页面，设置您的收款方式。对于多伦多用户，<span class="highlight">Interac e-Transfer</span> 是最推荐的选择，返现将直接存入您的银行卡。</p>
             <img src="reg4.jpg" class="guide-img">
         </div>
 
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="https://www.rakuten.ca/referrer?referrerid=J9l09BkJzsA%3D" target="_blank" class="btn-bottom">立即注册领 $40 奖励</a>
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="https://www.rakuten.ca/referrer?referrerid=J9l09BkJzsA%3D" target="_blank" class="btn-bottom">立即开启 $40 奖励通道</a>
         </div>
 
-        <footer style="text-align: center; padding: 40px 0; color: #999; font-size: 0.8rem;">
-            © 2026 Saga Paws | Instructions based on Rakuten.ca
-        </footer>
+        <div class="service-footer">
+            <a href="#" class="service-link">帮助中心 (FAQ)</a>
+            <a href="#" class="service-link">联系客服</a>
+            <a href="#" class="service-link">隐私政策</a>
+            <a href="#" class="service-link">服务条款</a>
+        </div>
+
+        <div class="disclaimer">
+            重要提示：本指引旨在帮助宠主利用 Rakuten 平台节省开支。奖励政策受 Rakuten.ca 官方条款约束，请确保通过官方认证链接注册以获得首单返现保障。
+            <br>© 2026 Saga Paws. All Rights Reserved.
+        </div>
     </div>
 
     <script type="text/javascript">
@@ -120,29 +108,8 @@
                 includedLanguages: 'en,fr,zh-CN,zh-TW,pa,es,ar,tl,ko,vi', 
                 autoDisplay: false
             }, 'google_translate_element');
-            
-            // 自动检测并继承上个页面的语言
             setTimeout(autoSyncLanguage, 1000);
         }
-
         function changeLanguage(langCode) {
             const select = document.querySelector('.goog-te-combo');
-            if (select) {
-                select.value = langCode;
-                select.dispatchEvent(new Event('change'));
-            }
-        }
-
-        function autoSyncLanguage() {
-            // 尝试从 Google Translate 的 Cookie 中读取语言状态
-            const cookies = document.cookie.split(';');
-            const langCookie = cookies.find(c => c.trim().startsWith('googtrans='));
-            if (langCookie) {
-                const lang = langCookie.split('/').pop();
-                changeLanguage(lang);
-            }
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</body>
-</html>
+            if (select) { select.value = langCode;
