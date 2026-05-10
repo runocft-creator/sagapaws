@@ -8,47 +8,101 @@
         :root { --primary-color: #4CAF50; --blue-link: #007bff; --text-gray: #666; }
         body { font-family: -apple-system, sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; background: url('bg.jpg') no-repeat center center fixed; background-size: cover; font-size: 15px; }
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(220, 240, 220, 0.85); z-index: 1; }
+        
+        .lang-bar { position: relative; z-index: 100; width: 100%; background: rgba(255, 255, 255, 0.95); padding: 8px 5px; display: flex; justify-content: center; gap: 5px; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .lang-btn { text-decoration: none; color: #444; font-size: 11px; padding: 4px 8px; border-radius: 4px; border: 1px solid #adc6ad; background: #fff; cursor: pointer; }
+        
         .card { position: relative; z-index: 2; background: rgba(255, 255, 255, 0.95); width: 98%; max-width: 850px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); padding: 5px 40px 25px; text-align: center; margin: 10px 0; }
+        h1 { font-size: 2.2rem; margin: 10px 0 5px; color: #1a1a1a; }
+        
         .promo-box { border: 2px solid #ff4d4f; border-radius: 15px; padding: 12px; margin: 15px 0; background: #fff1f0; }
-        .step-list { text-align: left; margin: 20px 0; padding: 0; font-size: 1.05rem; line-height: 1.6; }
+        .promo-title { color: #ff4d4f; font-weight: 800; font-size: 1.3rem; }
+        
+        .step-list { text-align: left; margin: 20px 0; padding: 0; font-size: 1.05rem; color: #333; line-height: 1.6; }
         .step-item { margin-bottom: 12px; padding-left: 35px; position: relative; }
         .step-item::before { content: "✅"; position: absolute; left: 0; }
+        
         .inline-link { color: var(--blue-link); text-decoration: underline; font-weight: bold; }
+
         .btn { display: block; color: white; text-decoration: none; padding: 16px; border-radius: 18px; font-weight: bold; font-size: 1.25rem; margin-bottom: 12px; transition: 0.3s; }
         .btn-primary { background: #52c41a; }
-        .btn-blue { background: #1890ff; }
         .btn-orange { background: #ff9800; }
-        /* 底部样式 */
+        .btn:hover { transform: scale(1.01); opacity: 0.95; }
+
+        /* 页脚样式 */
         .footer-info { margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.85rem; color: var(--text-gray); }
-        .disclaimer { font-size: 0.75rem; line-height: 1.4; margin-top: 10px; text-align: justify; }
+        .footer-links { margin-bottom: 10px; }
+        .footer-links a { color: var(--text-gray); text-decoration: none; margin: 0 10px; }
+        .footer-links a:hover { text-decoration: underline; }
+        .disclaimer { font-size: 0.75rem; line-height: 1.4; color: #999; text-align: justify; margin-top: 10px; }
+        
+        #google_translate_element { display: none; }
     </style>
 </head>
 <body>
     <div class="overlay"></div>
+
+    <div class="lang-bar">
+        <button onclick="changeLanguage('en')" class="lang-btn">English</button>
+        <button onclick="changeLanguage('fr')" class="lang-btn">Français</button>
+        <button onclick="changeLanguage('zh-CN')" class="lang-btn">中文(普)</button>
+        <button onclick="changeLanguage('zh-TW')" class="lang-btn">中文(粤)</button>
+        <button onclick="changeLanguage('pa')" class="lang-btn">ਪੰਜਾਬੀ</button>
+        <button onclick="changeLanguage('es')" class="lang-btn">Español</button>
+        <button onclick="changeLanguage('ar')" class="lang-btn">العربية</button>
+        <button onclick="changeLanguage('tl')" class="lang-btn">Tagalog</button>
+        <button onclick="changeLanguage('ko')" class="lang-btn">한국어</button>
+        <button onclick="changeLanguage('vi')" class="lang-btn">Tiếng Việt</button>
+        <div id="google_translate_element"></div>
+    </div>
+
     <div class="card">
         <h1>Saga Paws</h1>
-        <p>多伦多养宠“套利”省钱全攻略 🐾</p>
+        <p style="font-size: 1.1rem; color: #444;">多伦多养宠“套利”省钱全攻略 🐾</p>
+        
         <div class="promo-box">
-            <strong style="color:#ff4d4f; font-size:1.2rem;">🎁 限时：买 $40 返 $40</strong>
+            <div class="promo-title">🎁 限时福利：买 $40 返 $40</div>
+            <p style="margin: 5px 0 0;">通过下方链接注册，首单满$40即返$40现金奖励！</p>
         </div>
 
-        <a href="https://www.rakuten.ca/referrer?referrerid=J9l09BkJzsA%3D" target="_blank" class="btn btn-primary">第一步：点击领取 $40 奖励</a>
+        <a href="https://www.rakuten.ca/referrer?referrerid=J9l09BkJzsA%3D" target="_blank" class="btn btn-primary">打开专属链接，注册返利</a>
 
         <div class="step-list">
-            <div class="step-item"><a href="guide_reg.html" class="inline-link">注册与收款设置</a></div>
-            <div class="step-item">在 PetSmart 结账时勾选 <b>Autoship</b> 叠加优惠。</div>
-            <div class="step-item"><a href="guide_shop.html" class="inline-link">查看实测账单：</a> 到手价仅 <b>$29.31</b>。</div>
+            <div class="step-item">
+                <a href="guide_reg.html" class="inline-link">注册与收款设置：</a> 建议绑定 <b>e-Transfer</b> 获取奖励。
+            </div>
+            <div class="step-item">
+                <strong>叠加 40% 折扣：</strong> <a href="guide_shop.html" class="inline-link">查看 PetSmart 购物指引</a>，务必勾选 <b>Autoship</b>。
+            </div>
+            <div class="step-item">
+                <strong>最终到手价：</strong> 扣除返现后，实测原价 $91 的宠粮仅需 <b>$29.31</b>。
+            </div>
         </div>
 
-        <a href="guide_shop.html" class="btn btn-orange">第二步：查看 PetSmart 购物指引</a>
-        <a href="guide_reg.html" class="btn btn-blue">查看 Rakuten 图文注册教程</a>
-
+        <a href="guide_shop.html" class="btn btn-orange">查看 PetSmart 购物实测与指引</a>
+        
         <div class="footer-info">
-            <p>📧 联系我们: <a href="mailto:support@sagapaws.ca" style="color:var(--text-gray);">support@sagapaws.ca</a></p>
+            <div class="footer-links">
+                <a href="mailto:support@sagapaws.ca">联系我们</a> | 
+                <a href="#">隐私条款</a> | 
+                <a href="#">关于我们</a>
+            </div>
+            <p>📧 咨询邮箱: support@sagapaws.ca</p>
             <div class="disclaimer">
-                <strong>免责声明：</strong>本站仅分享个人实测经验，不代表商家官方立场。奖励金额及规则以 Rakuten 和 PetSmart 官网实时显示为准。由于操作失误或商家规则变动导致的奖励未到账，本站概不负责。
+                <strong>免责声明：</strong> 本站仅为个人经验分享，不代表 Rakuten 或 PetSmart 官方立场。返现金额及规则以商家官网实时显示为准。由于操作环境、插件拦截或商家政策变动导致的奖励未到账，本站不承担相关责任。
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'zh-CN', includedLanguages: 'en,fr,zh-CN,zh-TW,pa,es,ar,tl,ko,vi', autoDisplay: false}, 'google_translate_element');
+        }
+        function changeLanguage(langCode) {
+            const select = document.querySelector('.goog-te-combo');
+            if (select) { select.value = langCode; select.dispatchEvent(new Event('change')); }
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
