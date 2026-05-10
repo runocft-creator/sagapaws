@@ -9,6 +9,7 @@
         body { font-family: -apple-system, sans-serif; background-color: var(--bg-color); margin: 0; color: #333; line-height: 1.6; }
         .container { max-width: 850px; margin: 0 auto; padding: 10px 20px 40px; }
         
+        /* 语言选项栏 */
         .lang-bar {
             position: relative; z-index: 100; width: 100%; background: #fff; padding: 10px 0;
             display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -22,19 +23,20 @@
         .step-num { display: inline-block; background: var(--primary-color); color: white; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: bold; margin-right: 10px; }
         h2 { display: inline; font-size: 1.3rem; vertical-align: middle; color: #1b5e20; }
         
-        .guide-img { width: 100%; border-radius: 12px; border: 1px solid #eee; margin-top: 15px; margin-bottom: 10px; }
-        .img-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        .img-container { width: 100%; margin-top: 15px; margin-bottom: 15px; text-align: center; }
+        .guide-img { width: 100%; max-width: 600px; border-radius: 12px; border: 1px solid #eee; display: block; margin: 0 auto 15px; }
 
         .warning-box { background-color: #fff3e0; border-left: 5px solid #ff9800; color: #e65100; padding: 15px; border-radius: 8px; font-size: 0.9rem; margin: 15px 0; }
         .highlight { color: var(--accent-color); font-weight: bold; }
 
-        .math-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #fff; border-radius: 10px; overflow: hidden; }
+        /* 结算表格样式 */
+        .math-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
         .math-table td { padding: 12px; border-bottom: 1px solid #eee; }
-        .math-table .label { color: #666; }
-        .math-table .value { font-weight: bold; text-align: right; }
+        .math-table .label { color: #666; font-size: 0.95rem; }
+        .math-table .value { font-weight: bold; text-align: right; font-family: 'Courier New', Courier, monospace; }
         .math-table .bonus { color: var(--primary-color); }
         .math-table .discount { color: var(--accent-color); }
-        .math-table .total-row td { background-color: #e8f5e9; font-weight: 800; font-size: 1.2rem; color: var(--primary-color); }
+        .math-table .total-row td { background-color: #e8f5e9; font-weight: 800; font-size: 1.2rem; color: var(--primary-color); border-bottom: 2px solid #2e7d32; }
 
         .service-footer { margin-top: 40px; border-top: 1px solid #ddd; padding-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .service-link { color: #666; text-decoration: none; font-size: 0.85rem; }
@@ -61,46 +63,46 @@
         <header>
             <a href="index.html" class="back-link">← 返回 Saga Paws 首页</a>
             <h1 style="margin: 10px 0 5px;">PetSmart 极致套利实测解析</h1>
-            <p style="color: #666;">原会员叠加 R 网返利：如何用 $29 买到原价 $91 的货</p>
+            <p style="color: #666;">原会员叠加 R 网返利：极致省钱 67% OFF 攻略</p>
         </header>
 
         <div class="step-card">
             <span class="step-num">1</span>
-            <h2>第一步：Rakuten 跳转与激活</h2>
-            <p>老会员同样适用！在 Rakuten 搜索 PetSmart 并点击跳转。进入官网后，确保右上角弹出红色 <span class="highlight">Activate</span> 横条。这步是确保返现和注册奖励到账的唯一凭证。</p>
-            <div class="img-grid">
-                <img src="shop1.jpg" class="guide-img">
-                <img src="shop2.jpg" class="guide-img">
-                <img src="shop3.jpg" class="guide-img">
+            <h2>第一步：Rakuten 跳转激活</h2>
+            <p>老会员同样适用！在 Rakuten 搜索 PetSmart 并点击跳转。进入官网后，确保右上角弹出红色 <span class="highlight">Activate</span> 横条。这是确保所有奖励到账的关键。</p>
+            <div class="img-container">
+                <img src="shop1.jpg" alt="步骤1" class="guide-img">
+                <img src="shop2.jpg" alt="步骤2" class="guide-img">
+                <img src="shop3.jpg" alt="步骤3" class="guide-img">
             </div>
         </div>
 
         <div class="step-card">
             <span class="step-num">2</span>
-            <h2>第二步：Autoship 设置与结账</h2>
-            <p>在支付页面勾选 <span class="highlight">Autoship</span>。本次实测中享受到了 <span class="highlight">40%</span> 的减免。提醒：每个账户的优惠比例不同，请以结账页面为准。若不需续订，可在收到货后随时取消。</p>
+            <h2>第二步：Autoship 优惠与结账</h2>
+            <p>在结账前务必勾选 <span class="highlight">Autoship</span>。目前可享受到了 <span class="highlight">40%</span> 的减免。每个账户优惠比例不同，请以实时显示的为准。收到货后可随时取消续订。</p>
             <div class="warning-box">
-                <strong>💡 核心提醒：</strong>
-                确保折扣后总额仍满足“免邮”门槛（如送货上门）。若支付金额过低可能产生运费，抵消省下的钱。
+                <strong>💡 特别提醒：</strong>
+                确保抵扣后的最终金额仍高于免邮门槛，避免产生不必要的配送费用。
             </div>
-            <div class="img-grid">
-                <img src="shop4.jpg" class="guide-img">
-                <img src="shop5.jpg" class="guide-img">
-                <img src="shop6.jpg" class="guide-img">
-                <img src="shop7.jpg" class="guide-img">
-                <img src="shop8.jpg" class="guide-img">
-                <img src="shop9.jpg" class="guide-img">
+            <div class="img-container">
+                <img src="shop4.jpg" alt="步骤4" class="guide-img">
+                <img src="shop5.jpg" alt="步骤5" class="guide-img">
+                <img src="shop6.jpg" alt="步骤6" class="guide-img">
+                <img src="shop7.jpg" alt="步骤7" class="guide-img">
+                <img src="shop8.jpg" alt="步骤8" class="guide-img">
+                <img src="shop9.jpg" alt="步骤9" class="guide-img">
             </div>
         </div>
 
         <div class="step-card">
             <span class="step-num">3</span>
-            <h2>账单实测：套利数学公式</h2>
-            <p>基于最后一张截图的真实账单，解析 67% OFF 的极致省钱逻辑：</p>
+            <h2>实测账单：极致省钱公式</h2>
+            <p>基于实测截图，我们还原了最真实的“套利”过程：</p>
             
             <table class="math-table">
                 <tr>
-                    <td class="label">订单基准价 + GST税 (91.28 + 8.48)</td>
+                    <td class="label">订单金额 + GST税 ($91.28 + $8.48)</td>
                     <td class="value">$99.76</td>
                 </tr>
                 <tr>
@@ -112,34 +114,36 @@
                     <td class="value discount">-$2.00</td>
                 </tr>
                 <tr class="total-row">
-                    <td class="label">本次实际支付 (信用卡扣款)</td>
+                    <td class="label">本次实际支付金额</td>
                     <td class="value">$73.82</td>
                 </tr>
                 <tr>
-                    <td class="label bonus">减：Rakuten 奖励及返利 (40 + 2.69)</td>
+                    <td class="label bonus">减：Rakuten 奖励与返现总计</td>
                     <td class="value bonus">-$42.69</td>
                 </tr>
                 <tr>
-                    <td class="label bonus">减：PetSmart 本单产生的新积分</td>
+                    <td class="label bonus">减：PetSmart 本单新产生积分</td>
                     <td class="value bonus">-$1.82</td>
                 </tr>
                 <tr style="background: #fff9c4; font-weight: bold;">
-                    <td class="label" style="color:#000">最终实际到手成本</td>
+                    <td class="label" style="color:#000">套利后最终到手成本</td>
                     <td class="value" style="color:#d32f2f">$29.31</td>
                 </tr>
             </table>
             
-            <p style="font-size: 0.95rem; margin-top: 15px;">
-                <strong>分析结论：</strong><br>
-                您用 <span class="highlight">$29.31</span> 的成本买到了原价约 <span class="highlight">$91</span> 的商品（扣除原积分后），综合折扣率高达 <span class="highlight">67% OFF</span>！
+            <p style="font-size: 0.95rem; margin-top: 20px;">
+                <strong>💡 结论：</strong><br>
+                您用 <span class="highlight">$29.31</span> 的成本买到了原价约 <span class="highlight">$91</span> 的商品（扣除积分后），综合折扣率高达 <span class="highlight">67% OFF</span>！且原有会员也能完美叠加 R 网返利。
             </p>
-            <img src="shop10.jpg" class="guide-img">
+            <div class="img-container">
+                <img src="shop10.jpg" alt="结算截图" class="guide-img">
+            </div>
         </div>
 
         <div class="service-footer">
             <a href="#" class="service-link">常见问题</a>
             <a href="#" class="service-link">联系客服</a>
-            <a href="#" class="service-link">隐私政策</a>
+            <a href="#" class="service-link">免责声明</a>
         </div>
     </div>
 
