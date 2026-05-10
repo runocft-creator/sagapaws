@@ -9,21 +9,18 @@
         body { font-family: -apple-system, sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; background: url('bg.jpg') no-repeat center center fixed; background-size: cover; font-size: 15px; }
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(220, 240, 220, 0.85); z-index: 1; }
         
-        /* 1. 完整十种语言栏 */
         .lang-bar { position: relative; z-index: 100; width: 100%; background: rgba(255, 255, 255, 0.95); padding: 8px 5px; display: flex; justify-content: center; gap: 5px; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
         .lang-btn { text-decoration: none; color: #444; font-size: 11px; padding: 4px 8px; border-radius: 4px; border: 1px solid #adc6ad; background: #fff; cursor: pointer; }
         
-        /* 3. 彻底消除顶部空间，4. 加宽容器 */
-        .card { position: relative; z-index: 2; background: rgba(255, 255, 255, 0.95); width: 95%; max-width: 800px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); padding: 0 40px 25px; text-align: center; margin: 10px 0; }
+        .card { position: relative; z-index: 2; background: rgba(255, 255, 255, 0.95); width: 98%; max-width: 850px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); padding: 5px 40px 25px; text-align: center; margin: 10px 0; }
         h1 { font-size: 2.2rem; margin: 10px 0 5px; color: #1a1a1a; }
         .subtitle { font-size: 1.1rem; margin-bottom: 15px; color: #444; }
 
         .promo-box { border: 2px solid #ff4d4f; border-radius: 15px; padding: 12px; margin: 15px 0; background: #fff1f0; }
         .promo-title { color: #ff4d4f; font-weight: 800; font-size: 1.3rem; }
         
-        /* 2. 列表布局：允许自动换行，确保 E-TRANSFER 可见 */
         .step-list { text-align: left; margin: 20px 0; padding: 0; font-size: 1.05rem; color: #333; line-height: 1.6; }
-        .step-item { margin-bottom: 12px; padding-left: 35px; position: relative; word-wrap: break-word; }
+        .step-item { margin-bottom: 12px; padding-left: 35px; position: relative; }
         .step-item::before { content: "✅"; position: absolute; left: 0; }
         
         .inline-link { color: var(--blue-link); text-decoration: underline; font-weight: bold; cursor: pointer; }
@@ -31,6 +28,7 @@
         .btn { display: block; color: white; text-decoration: none; padding: 16px; border-radius: 18px; font-weight: bold; font-size: 1.25rem; margin-bottom: 12px; transition: 0.3s; }
         .btn-primary { background: #52c41a; }
         .btn-blue { background: #1890ff; }
+        .btn-orange { background: #ff9800; } /* 新增：购物指引按钮颜色 */
         .btn:hover { transform: scale(1.01); opacity: 0.95; }
         #google_translate_element { display: none; }
     </style>
@@ -65,18 +63,21 @@
 
         <div class="step-list">
             <div class="step-item">
-                <a href="guide_reg.html" target="_blank" class="inline-link">登记返利方式：</a> 注册后在 Settings 中选择 <b>e-Transfer</b>、<b>PayPal</b> 或 <b>Big Fat Check</b> 接收奖励。
+                <a href="guide_reg.html" target="_blank" class="inline-link">注册与收款设置：</a> 在 Settings 中绑定 <b>e-Transfer</b> 或 <b>PayPal</b>。
             </div>
             <div class="step-item">
-                <strong>正确跳转方法：</strong> 在 Rakuten 内搜索 PetSmart，确保激活右上角红色 <b>Activate</b> 横条以确保追踪。
+                <strong>叠加 40% 折扣：</strong> 在 PetSmart 结账时务必勾选 <b>Autoship</b> 订阅。
             </div>
             <div class="step-item">
-                <strong>叠加 AutoShip 优惠：</strong> 下单勾选 <b>AutoShip</b>，首单通常可额外减免 <b>25%</b>。
+                <a href="guide_shop.html" target="_blank" class="inline-link">实测账单：</a> 通过本攻略，原价 $91 的宠粮最终到手仅需 <b>$29.31</b>。
             </div>
         </div>
 
-        <a href="guide_reg.html" target="_blank" class="btn btn-blue">查看详细图文注册指引</a>
-        <p style="font-size: 0.8rem; color: #777; margin-top: 10px;">Tips: 建议使用电脑端浏览器并关闭 AdBlock 插件以确保追踪成功。</p>
+        <a href="guide_shop.html" target="_blank" class="btn btn-orange">第二步：查看 PetSmart 购物套利详细指引</a>
+        
+        <a href="guide_reg.html" target="_blank" class="btn btn-blue">查看 Rakuten 图文注册教程</a>
+        
+        <p style="font-size: 0.8rem; color: #777; margin-top: 10px;">Tips: 建议关闭 AdBlock 插件以确保返现追踪成功。</p>
     </div>
 
     <script type="text/javascript">
@@ -86,7 +87,6 @@
         function changeLanguage(langCode) {
             const select = document.querySelector('.goog-te-combo');
             if (select) { select.value = langCode; select.dispatchEvent(new Event('change')); }
-            else { setTimeout(() => changeLanguage(langCode), 500); }
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
