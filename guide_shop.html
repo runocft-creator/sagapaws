@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetSmart 购物套利指指引 | Saga Paws</title>
+    <title>PetSmart 极致省钱实测 | Saga Paws</title>
     <style>
         :root { --primary-color: #2E7D32; --accent-color: #f44336; --bg-color: #f1f8e9; }
         body { font-family: -apple-system, sans-serif; background-color: var(--bg-color); margin: 0; color: #333; line-height: 1.6; }
         .container { max-width: 850px; margin: 0 auto; padding: 10px 20px 40px; }
         
-        /* 语言选项栏 */
         .lang-bar {
             position: relative; z-index: 100; width: 100%; background: #fff; padding: 10px 0;
             display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -23,18 +22,19 @@
         .step-num { display: inline-block; background: var(--primary-color); color: white; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: bold; margin-right: 10px; }
         h2 { display: inline; font-size: 1.3rem; vertical-align: middle; color: #1b5e20; }
         
-        .guide-img { width: 100%; border-radius: 12px; border: 1px solid #eee; margin-top: 15px; }
+        .guide-img { width: 100%; border-radius: 12px; border: 1px solid #eee; margin-top: 15px; margin-bottom: 10px; }
+        .img-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+
         .warning-box { background-color: #fff3e0; border-left: 5px solid #ff9800; color: #e65100; padding: 15px; border-radius: 8px; font-size: 0.9rem; margin: 15px 0; }
         .highlight { color: var(--accent-color); font-weight: bold; }
 
-        /* 结算表格 */
-        .math-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #fff; }
+        .math-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #fff; border-radius: 10px; overflow: hidden; }
         .math-table td { padding: 12px; border-bottom: 1px solid #eee; }
         .math-table .label { color: #666; }
         .math-table .value { font-weight: bold; text-align: right; }
-        .math-table .discount { color: var(--accent-color); }
         .math-table .bonus { color: var(--primary-color); }
-        .math-table .total-row td { background-color: #e8f5e9; font-weight: 800; font-size: 1.2rem; color: var(--primary-color); border-bottom: none; }
+        .math-table .discount { color: var(--accent-color); }
+        .math-table .total-row td { background-color: #e8f5e9; font-weight: 800; font-size: 1.2rem; color: var(--primary-color); }
 
         .service-footer { margin-top: 40px; border-top: 1px solid #ddd; padding-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .service-link { color: #666; text-decoration: none; font-size: 0.85rem; }
@@ -60,75 +60,86 @@
     <div class="container">
         <header>
             <a href="index.html" class="back-link">← 返回 Saga Paws 首页</a>
-            <h1 style="margin: 10px 0 5px;">PetSmart 购物与 Autoship 实操细节</h1>
-            <p style="color: #666;">通过实测订单，带你拆解每一分钱的去向</p>
+            <h1 style="margin: 10px 0 5px;">PetSmart 极致套利实测解析</h1>
+            <p style="color: #666;">原会员叠加 R 网返利：如何用 $29 买到原价 $91 的货</p>
         </header>
 
         <div class="step-card">
             <span class="step-num">1</span>
-            <h2>通过 Rakuten 跳转并激活</h2>
-            <p>在 Rakuten 内进入 PetSmart 官网。务必确保右上角红色 <span class="highlight">Activate</span> 横条已被激活，这决定了 $40 奖励能否成功追踪。</p>
-            <img src="shop1.jpg" class="guide-img">
+            <h2>第一步：Rakuten 跳转与激活</h2>
+            <p>老会员同样适用！在 Rakuten 搜索 PetSmart 并点击跳转。进入官网后，确保右上角弹出红色 <span class="highlight">Activate</span> 横条。这步是确保返现和注册奖励到账的唯一凭证。</p>
+            <div class="img-grid">
+                <img src="shop1.jpg" class="guide-img">
+                <img src="shop2.jpg" class="guide-img">
+                <img src="shop3.jpg" class="guide-img">
+            </div>
         </div>
 
         <div class="step-card">
             <span class="step-num">2</span>
-            <h2>Autoship 优惠设置</h2>
-            <p>在结算时选择 <span class="highlight">Autoship</span>。请注意，每个人看到的优惠比例可能不同，<span class="highlight">具体以官网实时显示为准</span>。在本次实测中，我们享受到了 <span class="highlight">40%</span> 的首次订阅减免。</p>
+            <h2>第二步：Autoship 设置与结账</h2>
+            <p>在支付页面勾选 <span class="highlight">Autoship</span>。本次实测中享受到了 <span class="highlight">40%</span> 的减免。提醒：每个账户的优惠比例不同，请以结账页面为准。若不需续订，可在收到货后随时取消。</p>
             <div class="warning-box">
-                <strong>💡 特别提醒：</strong>
-                1. 结账前请检查：Autoship 折扣后的金额是否仍高于免邮门槛，避免产生额外运费。<br>
-                2. 若不需要后续自动补货，在收到第一批商品后，记得进入后台取消订阅。
+                <strong>💡 核心提醒：</strong>
+                确保折扣后总额仍满足“免邮”门槛（如送货上门）。若支付金额过低可能产生运费，抵消省下的钱。
             </div>
-            <img src="shop2.jpg" class="guide-img">
+            <div class="img-grid">
+                <img src="shop4.jpg" class="guide-img">
+                <img src="shop5.jpg" class="guide-img">
+                <img src="shop6.jpg" class="guide-img">
+                <img src="shop7.jpg" class="guide-img">
+                <img src="shop8.jpg" class="guide-img">
+                <img src="shop9.jpg" class="guide-img">
+            </div>
         </div>
 
         <div class="step-card">
             <span class="step-num">3</span>
-            <h2>最终结算数据分析</h2>
-            <p>基于本次实测订单的金额拆解：</p>
+            <h2>账单实测：套利数学公式</h2>
+            <p>基于最后一张截图的真实账单，解析 67% OFF 的极致省钱逻辑：</p>
             
             <table class="math-table">
                 <tr>
-                    <td class="label">商品原价总计 (Subtotal)</td>
-                    <td class="value">$131.96</td>
+                    <td class="label">订单基准价 + GST税 (91.28 + 8.48)</td>
+                    <td class="value">$99.76</td>
                 </tr>
                 <tr>
-                    <td class="label discount">Autoship 首次订阅减免 (本次实测为 40% 折扣)</td>
-                    <td class="value discount">-$40.68</td>
+                    <td class="label discount">减：Autoship 叠加优惠金额</td>
+                    <td class="value discount">-$23.94</td>
+                </tr>
+                <tr>
+                    <td class="label discount">减：原有会员积分抵扣</td>
+                    <td class="value discount">-$2.00</td>
                 </tr>
                 <tr class="total-row">
-                    <td class="label">结账支付金额 (税前)</td>
-                    <td class="value">$91.28</td>
+                    <td class="label">本次实际支付 (信用卡扣款)</td>
+                    <td class="value">$73.82</td>
                 </tr>
                 <tr>
-                    <td class="label bonus">Rakuten 注册奖励 (新用户首单)</td>
-                    <td class="value bonus">-$40.00</td>
+                    <td class="label bonus">减：Rakuten 奖励及返利 (40 + 2.69)</td>
+                    <td class="value bonus">-$42.69</td>
                 </tr>
                 <tr>
-                    <td class="label bonus">Rakuten 订单返现 (例：按 2% 计)</td>
+                    <td class="label bonus">减：PetSmart 本单产生的新积分</td>
                     <td class="value bonus">-$1.82</td>
                 </tr>
-                <tr>
-                    <td class="label bonus">PetSmart Treats 积分价值 (累计后可抵现)</td>
-                    <td class="value bonus">-$2.00</td>
-                </tr>
                 <tr style="background: #fff9c4; font-weight: bold;">
-                    <td class="label" style="color:#000">实际到手成本（套利后）</td>
-                    <td class="value" style="color:#d32f2f">$47.46</td>
+                    <td class="label" style="color:#000">最终实际到手成本</td>
+                    <td class="value" style="color:#d32f2f">$29.31</td>
                 </tr>
             </table>
             
-            <p style="font-size: 0.85rem; color: #888; margin-top: 15px;">
-                * 本次实测：原价 $131.96 的宠粮，通过精准套利，最终仅需支付 <span class="highlight">$47.46</span>。
+            <p style="font-size: 0.95rem; margin-top: 15px;">
+                <strong>分析结论：</strong><br>
+                您用 <span class="highlight">$29.31</span> 的成本买到了原价约 <span class="highlight">$91</span> 的商品（扣除原积分后），综合折扣率高达 <span class="highlight">67% OFF</span>！
             </p>
-            <img src="shop3.jpg" class="guide-img">
+            <img src="shop10.jpg" class="guide-img">
         </div>
 
         <div class="service-footer">
             <a href="#" class="service-link">常见问题</a>
-            <a href="#" class="service-link">联系支持</a>
-            <a href="#" class="service-link">免责声明</a>
+            <a href="#" class="service-link">联系客服</a>
+            <a href="#" class="service-link">隐私政策</a>
         </div>
     </div>
 
